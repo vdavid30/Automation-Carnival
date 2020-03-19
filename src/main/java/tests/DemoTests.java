@@ -101,4 +101,24 @@ public class DemoTests extends BaseTest {
                 .clickOnSearchCruises();
         Assert.assertNull(cruiseSearchPage);
     }
+
+    @Test(priority = 1)
+    public void readAllInformationFromASail() throws Exception {
+        HomePage homePage = new HomePage(webDriver);
+        homePage.goToHomePage()
+                .closePopUp()
+                .clickOnSpan("Sail To")
+                .clickOnSelectButton("The Bahamas")
+                .clickOnSpan("Sail From")
+                .clickOnSelectButton("Baltimore, MD")
+                .clickOnSpan("Dates")
+                .clickOnSelectButton("Jan")
+                .clickOnSpan("Duration")
+                .clickOnSelectButton("6 - 9 Days")
+                .clickOnSearchCruises()
+                .clickOnListViewButton()
+                .selectOneSail()
+                .findSailDays()
+                .readAllDaysDescription();
+    }
 }

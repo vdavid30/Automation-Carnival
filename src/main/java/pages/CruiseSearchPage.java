@@ -45,4 +45,11 @@ public class CruiseSearchPage extends BasePage {
         WebElement webElement = driver.findElement(By.xpath("//span[@class='rz-pointer rz-pointer-max']"));
         return webElement;
     }
+
+    public DescriptionPage selectOneSail(){
+        By span = By.xpath("//span[@class='cgc-cruise-glance__main-text ng-binding']");
+        waitVisibility(span);
+        click(span);
+        return new DescriptionPage(driver);
+    }
 }
